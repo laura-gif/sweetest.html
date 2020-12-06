@@ -1,0 +1,1811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>sweet.kz</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Cuprum&display=swap" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://api-maps.yandex.ru/2.1/?lang=en_RU&amp;apikey=AIzaSyCnMj8Xc5_jA0tqVHCoFHCk-2sHt4imItA" type="text/javascript"></script>
+    </script>
+    <style>
+
+		.menu1{
+			display: flex;
+			justify-content: center;
+			width: 100%;
+			font-family: Cuprum, Arial, Helvetical, sans-serif;
+			border-right: 1px solid #c7c8ca;
+			padding-right:130px;
+		}
+
+		.menu1 li ul{
+			display: none;
+			position: absolute;
+			min-width: 210px;
+			margin-left: -40px;
+			z-index: 1;
+		}
+
+		.menu1 li:hover>ul{
+			display: block;
+		}
+		.menu1 li>ul li{
+			border:1px solid #c7c8ca;
+		}
+		.menu1 li>ul li a{
+			padding: 10px;
+			text-transform: none;
+			}
+
+		.menu1>ul li a{
+			color: black;
+			display: block;
+			background:#ececed;
+			font-size: 12px;
+			text-decoration: none;
+			padding: 15px 13px 15px 25px;
+			text-transform: none;
+			transition: all 0.3s ease;
+			/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,f3f3f3+50,ededed+51,ffffff+100;White+Gloss+%232 */
+			background: rgb(255,255,255); /* Old browsers */
+			background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(243,243,243,1) 50%, rgba(237,237,237,1) 51%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(243,243,243,1) 50%,rgba(237,237,237,1) 51%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(243,243,243,1) 50%,rgba(237,237,237,1) 51%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+			}
+
+		.menu1 li a:hover{
+			/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#a90329+0,8f0222+44,6d0019+100;Brown+Red+3D */
+			background: rgb(169,3,41); /* Old browsers */
+			background: -moz-linear-gradient(top,  rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgba(109,0,25,1) 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(top,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to bottom,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=0 ); /* IE6-9 */
+			color: #ffffff;
+		    box-shadow: 1px 5px 10px -5px black;
+		    transition: all 0.3s ease;
+		}
+		
+	    #name{
+			background-size: 100%;
+			height: 500px;
+			display: grid;
+			justify-content: center;
+			
+		}
+
+		.town{
+			border: 2px solid black;
+			color: black;
+			font-size: 19px;
+			width: 70%;
+			height: 120px;
+			padding:26px;
+			text-align: center;
+			margin:0 auto;
+			}
+		
+		.tat{
+			position: fixed;
+			top: 0px;
+			display: none;
+			justify-content: center;
+			width: 100%;
+			height: 100%;
+			background-color: rgb(0, 0, 0, 0.5); 
+			align-items: center;
+			z-index: 1;
+			}
+		.tat1{
+			background-color:lightblue;
+			width: 700px;
+			height: 530px;
+			padding: 10px;
+			border-radius:10px; 
+			text-align: center;
+		}
+		.s1{
+			position: fixed;
+			top: 0px;
+			display: none;
+			justify-content: center;
+			width: 100%;
+			height: 100%;
+			background-color: rgb(0, 0, 0, 0.5); 
+			align-items: center;
+			z-index: 1;
+			}
+
+		.s2{
+			/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#a90329+0,8f0222+44,6d0019+100;Brown+Red+3D */
+			background: rgb(169,3,41); /* Old browsers */
+			background: -moz-linear-gradient(top,  rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgba(109,0,25,1) 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(top,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to bottom,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=0 ); /* IE6-9 */
+			width: 500px;
+			height: 330px;
+			padding: 10px;
+			border-radius:10px; 
+			text-align: center;
+		}
+		.s1 input{
+			display: block;
+			margin: 20px auto;
+			width: 50%;
+			padding: 7px;
+		}
+
+		.icon{
+			position: relative;
+			top: 0px;
+			right: -230px;
+			top: -77px;
+			cursor: pointer;
+		}
+		.s3{
+			position: absolute;
+			top: 90px;
+			right: 20px;
+			margin: 0;
+			background-color: rgb(0,0,0,0.6);
+			border-radius: 5px;
+			display: none;
+		}
+		#avatar{
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			display: inline;
+		}
+		#user_name{
+			margin: 0;
+			padding: 10px;
+			display: inline;
+			color: white;
+			font-size: 22px;
+		}
+		
+		.l1{
+			position: fixed;
+			display: none;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			height: 100%;
+			background-size: 100%;
+			z-index: 2;
+		}
+		
+		.l2{
+		   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#a90329+0,8f0222+44,6d0019+100;Brown+Red+3D */
+			background: rgb(169,3,41); /* Old browsers */
+			background: -moz-linear-gradient(top,  rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgba(109,0,25,1) 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(top,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to bottom,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=0 ); /* IE6-9 */
+			
+		   margin:50px auto;
+			width: 600px;
+			height: 500px; 
+			text-align: center;
+		}
+		.l1 input{
+			display: block;
+			margin: 13px auto;
+			width: 40%;
+			height: 6%;
+			padding: 7px;
+			cursor: pointer;
+		}
+
+		.container{
+			min-width: 1000px;
+			display: flex;
+			height: 440px;
+			padding: 5px;
+
+		}
+
+		#iii{
+			height: 75vh;
+			justify-content: center;
+			align-items: center;
+			margin-bottom: 20px;
+
+		}
+		.dws-wrapper{
+			display: flex;
+			height: 75vh;
+			justify-content: center;
+			align-items: center;
+			margin-bottom: 20px;
+
+		}
+
+		.img-box{
+			height:450px;
+			background-size: 620px 400px;
+			background-position: center;
+			background-repeat: no-repeat;
+			transition: 1s;
+			filter: grayscale(0.5);
+			flex-grow: 1;
+		    opacity: 0.8;
+		    margin-top: -12px;
+		    position: relative;
+		    overflow: hidden;
+		}
+		.img-box:hover{
+			background-size: 790px 420px;
+			flex-grow: 5;
+			filter:grayscale(0);
+			opacity: 1;
+		}
+
+		.content1{
+			color: #ffffff;
+			background-color:#000;
+			opacity: 0.7;
+			font-family: Roboto,sans-serif;
+			font-size: 12px;
+			text-align: justify;
+			width: 40%;
+			position: absolute;
+			bottom: 27px;
+			left: 10px;
+			padding: 10px;
+			box-sizing: border-box;
+			-webkit-transform:translateY(120%);
+			-moz-transform:translateY(120%);
+			-ms-transform:translateY(120%);
+			-o-transform:translateY(120%);
+			transform: translateY(120%);
+			transition: 0.5s;
+			display: none;
+		}
+		.img-box:hover .content1{
+			transform: translateY(0);
+			transition-delay: 1s;
+		}
+		.content1 h2{
+			margin:0 0 5px;
+			padding: 0;
+			text-transform: uppercase;
+			font-size: 26px;
+			color: #4cdde5;
+
+		}
+		.content1 p{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+
+    <script>  
+            var ens_lang = 'en';
+    </script>
+
+<body>
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTn1YesgPyP-QVni6m4P7-fIf5jQXrZCB_DHQ&usqp=CAU" alt="j" style="width: 10%; float: left; position: absolute; margin-top: 29px;">
+		<header style="padding-left: 40px; width: 100%;  background-color:white;height: 95px; margin-bottom: 14px">
+
+		<nav class="menu1"style="padding-top:20px;" >
+			<ul style="list-style-type: none; justify-content: center; display: flex;">
+			    <li style="width:18%; padding-left:50px"onclick="window.location.reload()"><a href="#" ><img src="https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/home-512.png" alt="hjg" style="width: 18%; margin-right:14px;" >MAIN</a></li>
+
+				<li id="nn" style="width: 15%"><a href="#"><img src="https://img.icons8.com/ios/452/confectionery.png" alt="mm" style="width: 16%; margin-right: 10px">CONFECTIONERY</a>	
+				</li>
+						
+
+				<li style="width: 13%" id="n2" onclick="frout()">
+					<a href="#">
+						<img src="https://cdn1.iconfinder.com/data/icons/communication-vol-2/48/061-512.png" alt="ddfg" style="width: 19%; margin-right:15px;">CONTACT</a>
+				</li>
+				
+				<li style="width:13%;" id="n3">
+					<a href="#">
+						<img src="https://cdn.onlinewebfonts.com/svg/img_398816.png" alt="jkk" style="width: 19%; margin-right:15px;" >ABOUT US</a>
+				</li>
+			</ul>
+		</nav>
+    	</header>
+
+    	
+   	
+    	<div class="tat">
+			<div class="tat1">
+				<img src="https://dastarkhan24.kz/upload/iblock/31f/31fc44035da02e7ac2421bc8af35bed5.jpg" width="350" height="510px" alt="m" style="float: left;margin-right: 8px" id="bts2"><br>
+				<h1 class="bts">"Milky" Cake</h1>	
+				<p class="bts1" style="font-size:18px; color:green">123$</p>
+				<img src="l.png" alt="nj" style="width: 15%; margin-top: -20px;">
+				<p style="text-align: left" id="para">Delicate cake 'Milk Girl' is made from cakes based on condensed milk and saturated with melting filling made from soft whipped cream. Decorated with fresh strawberries and deliciously complements a cup of coffee or tea.</p>
+				<div class="number" style="margin-bottom: 60px">
+    				<span class="minus" style="cursor: pointer;">-</span>
+    				<input type="text" value="1" size="3" style="text-align: center" />
+   				    <span class="plus" style="cursor: pointer;">+</span>
+				</div>
+				<div style="font-size: 18px;">
+				<button class="btn-success plus2" id="myButton" data-id="sisls23" style="border-radius: 20px; width: 100px">Buy </button>
+				</div>
+
+				<img class="icon1" src="https://cdn.pixabay.com/photo/2017/11/07/07/06/x-2925826_960_720.png" alt="m" width="6%" 
+				onclick="out()" style="margin-top:-475px; margin-left: 150px;position: absolute; width: 3%">
+
+					
+				
+	</div></div>
+
+		<div class="s1">
+			<div class="s2">
+				<img src="https://pbs.twimg.com/profile_images/578813385174835201/6XM2_B0V.png" width="15%" alt="m" onclick="logout()"><br>
+
+				<img class="icon" src="https://cdn.pixabay.com/photo/2017/11/07/07/06/x-2925826_960_720.png" alt="m" width="6%" 
+				onclick="login()" >
+					
+					<input id="id1" type="text" name="user" placeholder="Username" style="margin-top: -17px">
+					<input id="id2" type="password" name="pass" placeholder="Password" minlength="5" maxlength="10">
+		<button onclick="plus()" id="l" class="btn btn-outline-light">Log In</button>
+		<p style="padding-top: 20px; color:white">Don't have an account yet? <a id="reg" href="#y6" style="color: grey" >Register now</a></p>
+	</div>
+
+		<a href="" name="y6">
+			<div class="l1"></a>
+				<div class="l2">
+					<img src="https://w1.pngwing.com/pngs/180/227/png-transparent-arrow-icon-back-icon-left-icon-square-icon-electric-blue-line-logo-symbol-thumbnail.png" id="icon5" alt="njm" width="6%" style="position: relative; left: -230px; top: -20px">
+					<img src="https://pbs.twimg.com/profile_images/578813385174835201/6XM2_B0V.png" class="firstimg" alt="j" width="15%" style="margin-left: -35px">
+					<h5>CREATE ACCOUNT</h5>
+			<input id="m1" type="text" name="fullName" placeholder="Full Name">	
+			<input id="m2" type="text" name="username" placeholder="Username">	
+			<input id="m3" type="email" name="email" placeholder="Email">
+			<input id="m4" type="tel" placeholder="Phone Number" maxlength="13">	
+			<input id="m5" class="same" type="password" name="pass" placeholder="Password" minlength="5" maxlength="10">	
+			<input id="m6" class="bt" class="same1" type="password" name="again" placeholder="Repeat Password" minlength="5" maxlength="10">	
+			<input id="myCheckbox" class="check" type="checkbox" style="width: 3%; float: left; margin: 0 -160px 0 190px" autocomplete="">I agree to the <a href="#y6">Term Of Users</a>
+			 <br>	
+			<botton onclick="close_s1()" name="submit1" class="btn btn-outline-light" href="#y7" 
+			 style="width: 90px; padding-top: 1px; font-size: 15px; margin-top: 10px; margin-right: 35px;">Sign Up</botton>
+			</div>
+	</div>
+	</div>
+	
+	<div style="background-color: brown; height: 80px; margin-top:-20px; margin-bottom: 20px" class="foo">
+		<div class=card-body style="width: 45%; margin-left: 500px; float: left">
+			<form action="#" role=search >
+				<div class="input-group">
+				<input type="text" name="query" class="form-control" placeholder="Search" value="">
+				<span class="input-group-btn">
+					<button type="submit" class="btn btn-secondary">Search</button>
+				</span>
+				
+			</div>
+		</form>
+        </div>
+
+     
+        <a href="#" onclick="s1()">
+        <img src="https://gstou.ru/images/unkown.png" alt="nj" style="width: 3%; margin-top: 17px;">
+        <img src="https://pngimg.com/uploads/plus/plus_PNG111.png" alt="kj" style="width: 1%; margin-top:40px; margin-left: -20px" id="plus1">
+         </a>
+
+
+
+     </div>  
+
+
+
+
+       <div style="display:none;justify-content: center;padding-top: 50px; margin-bottom: -49.8px " id="cakke">
+			
+			<div style="width:250px; height: 250px; border:1px solid grey;background-image: url(https://dastarkhan24.kz/upload/iblock/31f/31fc44035da02e7ac2421bc8af35bed5.jpg);background-size: 100%;" id="aya" class="shop-item-image">
+			    <div style="background-color: rgb(0,0,0,0.5);width: 250px;height: 250px;display: none;justify-content: center;" id="a" >
+			    	<img src="https://cdn.pixabay.com/photo/2017/03/19/03/48/material-icon-2155442_960_720.png" alt="m" style="width: 100px;height: 50px; margin-top: 110px " class="lara">	
+			    </div>	
+
+				<div style="background-color: rgb(0,0,0,0.5); width: 250px; height: 90px; margin-top:159px; text-align: center; color: white" id ="b"> 
+		            <h5 class="shop-item-title" id="dan">'Milky' Cake</h5>
+		       	    <p class="shop-item-price" id="lan">123$</p>
+
+		       	    <img src="l.png" alt="k" style="width: 100px; margin-top: -25px">
+
+		        </div>
+		    </div>
+
+			<div style="width:250px; height: 250px; border:1px solid grey;background-image: url(https://dastarkhan24.kz/upload/iblock/6fa/6faf913ab348d0a18c88c291bac2d5a8.jpg);background-size: 100%" id="aya1" class="shop-item-image">
+				<div style="background-color: rgb(0,0,0,0.5);width: 250px;height: 250px;display: none;justify-content: center;" id="a1">
+				    <img src="https://cdn.pixabay.com/photo/2017/03/19/03/48/material-icon-2155442_960_720.png" alt="m" style="width: 100px;height: 50px; margin-top: 110px " class="lara">	
+			    </div>
+
+				<div style="background-color: rgb(0,0,0,0.5); width: 250px; height: 90px; margin-top:159px; text-align: center; color: white" id="b1"> 
+		         	<h5 class="shop-item-title" id="dan1">'Red Velvet'</h5>
+		        	<p class="shop-item-price" id="lan1">93$</p>
+		        	<img src="l.png" alt="k" style="width: 100px; margin-top: -25px">
+		       </div>
+		    </div>
+
+			<div style="width:250px; height: 250px; border:1px solid grey;background-image: url(https://dastarkhan24.kz/upload/iblock/983/983107cbb6fee8782df025a7cbadebf2.jpg);background-size: 100%" id="aya2" class="shop-item-image">
+				<div style="background-color: rgb(0,0,0,0.5);width: 250px;height: 250px;display: none;justify-content: center;" id="a2">
+				    <img src="https://cdn.pixabay.com/photo/2017/03/19/03/48/material-icon-2155442_960_720.png" alt="m" style="width: 100px;height: 50px; margin-top: 110px " class="lara">	
+			    </div>
+
+				<div style="background-color: rgb(0,0,0,0.5); width: 250px; height: 90px; margin-top:159px; text-align: center; color: white" id="b2" > 
+		         	<h5 class="shop-item-title" id="dan2">'Customized' cake</h5>
+		        	<p class="shop-item-price" id="lan2">110$</p>
+		        	<img src="l.png" alt="k" style="width: 100px; margin-top: -25px">
+		       </div>
+		    </div>
+
+		    <div style="width:250px; height: 250px; border:1px solid grey;background-image: url(https://dastarkhan24.kz/upload/iblock/7db/7db9be85f5476557d36dc5f2e23144e9.jpg);background-size: 100%" id="aya3" class="shop-item-image">
+				<div style="background-color: rgb(0,0,0,0.5);width: 250px;height: 250px;display: none;justify-content: center;" id="a3">
+				    <img src="https://cdn.pixabay.com/photo/2017/03/19/03/48/material-icon-2155442_960_720.png" alt="m" style="width: 100px;height: 50px; margin-top: 110px " class="lara">	
+			    </div>
+
+				<div style="background-color: rgb(0,0,0,0.5); width: 250px; height: 90px; margin-top:159px; text-align: center; color: white" id="b3"> 
+				    <h5 id="dan3" class="shop-item-title">'Kiev' cake</h5>
+		       	    <p id="lan3" class="shop-item-price">80$</p>
+		       	    <img src="l.png" alt="k" style="width: 100px; margin-top: -25px">
+		        </div>
+		    </div>
+
+			<div style="width:250px; height: 250px; border:1px solid grey;background-image: url(https://dastarkhan24.kz/upload/iblock/c0f/c0f0e8cd9011be7445d92e36ba3ce0e1.jpg);background-size: 100%" id="aya4" class="shop-item-image">
+				<div style="background-color: rgb(0,0,0,0.5);width: 250px;height: 250px;display: none;justify-content: center;" id="a4">
+				    <img src="https://cdn.pixabay.com/photo/2017/03/19/03/48/material-icon-2155442_960_720.png" alt="m" style="width: 100px;height: 50px; margin-top: 110px " class="lara">	
+			    </div>
+
+				<div style="background-color: rgb(0,0,0,0.5); width: 250px; height: 90px; margin-top:159px; text-align: center; color: white" id="b4"> 
+		         	<h5 id="dan4" class="shop-item-title">'Prague' Cake</h5>
+		        	<p id="lan4" class="shop-item-price">120$</p>
+		        	<img src="l.png" alt="k" style="width: 100px; margin-top: -25px">
+		        </div>
+		    </div>
+		</div>	
+
+		<div style="display:none;justify-content: center;padding-top: 50px;" id="cakke1">
+			
+			<div style="width:250px; height: 250px; border:1px solid grey;background-image: url(https://dastarkhan24.kz/upload/iblock/6d6/6d627d43626688eaa5a345f27a1485ed.jpg);background-size: 100%;" id="aya5" class="shop-item-image">
+				<div style="background-color: rgb(0,0,0,0.5);width: 250px;height: 250px;display: none;justify-content: center;" id="a5" >
+				    <img src="https://cdn.pixabay.com/photo/2017/03/19/03/48/material-icon-2155442_960_720.png" alt="m" style="width: 100px;height: 50px; margin-top: 110px " class="lara">	
+			    </div>
+
+		        <div style="background-color: rgb(0,0,0,0.5); width: 250px; height: 90px; margin-top:159px; text-align: center; color: white" id="b5"> 
+		       	    <h5 id="dan5" class="shop-item-title">'Anniversary' Cake</h5>
+		       	    <p id="lan5" class="shop-item-price">100$</p>
+		       	    <img src="l.png" alt="k" style="width: 100px; margin-top: -25px">
+		        </div>
+		    </div>
+		   
+		    <div style="width:250px; height: 250px; border:1px solid grey;background-image: url(https://dastarkhan24.kz/upload/iblock/5a1/5a141bfba8e35361cc8e5c9b9804cdb3.jpg);background-size: 100%" id="aya6" class="shop-item-image">
+		    	<div style="background-color: rgb(0,0,0,0.5);width: 250px;height: 250px;display: none;justify-content: center;" id="a6" >
+				    <img src="https://cdn.pixabay.com/photo/2017/03/19/03/48/material-icon-2155442_960_720.png" alt="m" style="width: 100px;height: 50px; margin-top: 110px " class="lara">	
+			    </div>
+		   	    <div style="background-color: rgb(0,0,0,0.5); width: 250px; height: 90px; margin-top:159px; text-align: center; color: white" id="b6"> 
+		   	        <h5 id="dan6" class="shop-item-title">'Milky Girl' Cake</h5>
+		         	<p id="lan6" class="shop-item-price">93$</p>
+		       	    <img src="l.png" alt="k" style="width: 100px; margin-top: -25px">
+		        </div>
+		    </div>
+
+			<div style="width:250px; height: 250px; border:1px solid grey;background-image: url(https://dastarkhan24.kz/upload/iblock/2f8/2f89093fb486d306ef1a7e572d4e95c2.jpg);background-size: 100%" id="aya7" class="shop-item-image">
+				<div style="background-color: rgb(0,0,0,0.5);width: 250px;height: 250px;display: none;justify-content: center;" id="a7" >
+				    <img src="https://cdn.pixabay.com/photo/2017/03/19/03/48/material-icon-2155442_960_720.png" alt="m" style="width: 100px;height: 50px; margin-top: 110px " class="lara">	
+			    </div>
+				<div style="background-color: rgb(0,0,0,0.5); width: 250px; height: 90px; margin-top:159px; text-align: center; color: white" id="b7"> 
+		       	    <h5 id="dan7" class="shop-item-title">'Carrot' cake</h5>
+		       	    <p id="lan7" class="shop-item-price">102$</p>
+		          	<img src="l.png" alt="k" style="width: 100px; margin-top: -25px">
+		        </div>
+		    </div>
+
+			<div style="width:250px; height: 250px; border:1px solid grey;background-image: url(https://dastarkhan24.kz/upload/iblock/121/1211cc8630feb33cc71b20cd120ccf7e.jpg);background-size: 100%" id="aya8" class="shop-item-image">
+				<div style="background-color: rgb(0,0,0,0.5);width: 250px;height: 250px;display: none;justify-content: center;" id="a8" >
+				    <img src="https://cdn.pixabay.com/photo/2017/03/19/03/48/material-icon-2155442_960_720.png" alt="m" style="width: 100px;height: 50px; margin-top: 110px " class="lara">	
+			    </div>
+				<div style="background-color: rgb(0,0,0,0.5); width: 250px; height: 90px; margin-top:159px; text-align: center; color: white" id="b8">
+			        <h5 id="dan8" class="shop-item-title">'Eden' cake</h5>
+		         	<p id="lan8" class="shop-item-price">91$</p>
+		        	<img src="l.png" alt="k" style="width: 100px; margin-top: -25px">
+		        </div>
+		    </div>
+
+			<div style="width:250px; height: 250px; border:1px solid grey;background-image: url(https://dastarkhan24.kz/upload/iblock/3c5/3c5291e507b7651db45dba748f6548d6.jpg);background-size: 100%" id="aya9" class="shop-item-image">
+				<div style="background-color: rgb(0,0,0,0.5);width: 250px;height: 250px;display: none;justify-content: center;" id="a9" >
+				    <img src="https://cdn.pixabay.com/photo/2017/03/19/03/48/material-icon-2155442_960_720.png" alt="m" style="width: 100px;height: 50px; margin-top: 110px " class="lara">	
+			    </div>
+				<div style="background-color: rgb(0,0,0,0.5); width: 250px; height: 90px; margin-top:159px; text-align: center; color: white" id="b9"> 
+		         	<h5 id="dan9" class="shop-item-title">'Yoghurt' Cake</h5>
+		        	<p id="lan9" class="shop-item-price">120$</p>
+		        	<img src="l.png" alt="k" style="width: 100px; margin-top: -25px">
+		        </div>
+		    </div>
+		</div>
+
+		<div style="display:none;justify-content: center;padding-top: 50px;margin-top:-49.8px;" id="cakke2">			
+			<div style="width:250px; height: 250px; border:1px solid grey;background-image: url(https://dastarkhan24.kz/upload/iblock/3b6/3b63d6ca098231917bfb003d778b175e.jpg);background-size: 100%;" id="aya10" class="shop-item-image">
+				<div style="background-color: rgb(0,0,0,0.5);width: 250px;height: 250px;display: none;justify-content: center;" id="a10" >
+				    <img src="https://cdn.pixabay.com/photo/2017/03/19/03/48/material-icon-2155442_960_720.png" alt="m" style="width: 100px;height: 50px; margin-top: 110px " class="lara">	
+			    </div>
+		        <div style="background-color: rgb(0,0,0,0.5); width: 250px; height: 90px; margin-top:159px; text-align: center; color: white" id="b10"> 
+		        	<h5 class="shop-item-title">'Napoleon' Cake</h5>
+		        	<p class="shop-item-price">99$</p>
+		        	<img src="l.png" alt="k" style="width: 100px; margin-top: -25px">
+		        </div>
+		    </div>
+		   
+		    <div style="width:250px; height: 250px; border:1px solid grey;background-image: url(https://dastarkhan24.kz/upload/iblock/ce4/ce4bd54b57fe0b136432a5576741c84a.jpg);background-size: 100%" id="aya11" class="shop-item-image">
+		    	<div style="background-color: rgb(0,0,0,0.5);width: 250px;height: 250px;display: none;justify-content: center;" id="a11" >
+				    <img src="https://cdn.pixabay.com/photo/2017/03/19/03/48/material-icon-2155442_960_720.png" alt="m" style="width: 100px;height: 50px; margin-top: 110px " class="lara">	
+			    </div>
+		    	<div style="background-color: rgb(0,0,0,0.5); width: 250px; height: 90px; margin-top:159px; text-align: center; color: white" id="b11"> 
+		   	        <h5 class="shop-item-title">'Eva' Cake</h5>
+		         	<p class="shop-item-price">98$</p>
+		        	<img src="l.png" alt="k" style="width: 100px; margin-top: -25px">
+		        </div>
+		    </div>
+
+			<div style="width:250px; height: 250px; border:1px solid grey;background-image: url(https://dastarkhan24.kz/upload/iblock/6ab/6ab1f6acf595a794ec956bd91fa86c0e.jpg);background-size: 100%" id="aya12" class="shop-item-image">
+				<div style="background-color: rgb(0,0,0,0.5);width: 250px;height: 250px;display: none;justify-content: center;" id="a12" >
+				    <img src="https://cdn.pixabay.com/photo/2017/03/19/03/48/material-icon-2155442_960_720.png" alt="m" style="width: 100px;height: 50px; margin-top: 110px " class="lara">	
+			    </div>
+				<div style="background-color: rgb(0,0,0,0.5); width: 250px; height: 90px; margin-top:159px; text-align: center; color: white" id="b12"> 
+				    <h5 class="shop-item-title">'Berry' cake</h5>
+		        	<p class="shop-item-price">123$</p>
+		        	<img src="l.png" alt="k" style="width: 100px; margin-top: -25px">
+		        </div>
+		    </div>
+
+			<div style="width:250px; height: 250px; border:1px solid grey;background-image: url(https://dastarkhan24.kz/upload/iblock/01d/01d16ba95321f727ea204f73cdc30c06.jpg);background-size: 100%" id="aya13" class="shop-item-image">
+				<div style="background-color: rgb(0,0,0,0.5);width: 250px;height: 250px;display: none;justify-content: center;" id="a13" >
+				    <img src="https://cdn.pixabay.com/photo/2017/03/19/03/48/material-icon-2155442_960_720.png" alt="m" style="width: 100px;height: 50px; margin-top: 110px " class="lara">	
+			    </div>
+				<div style="background-color: rgb(0,0,0,0.5); width: 250px; height: 90px; margin-top:159px; text-align: center; color: white" id="b13"> 
+					<h5 class="shop-item-title">'Curd' cake</h5>
+		       	    <p class="shop-item-price">98$</p>
+		       	    <img src="l.png" alt="k" style="width: 100px; margin-top: -25px">
+		       	     </div>
+		    </div>
+
+			<div style="width:250px; height: 250px; border:1px solid grey;background-image: url(https://dastarkhan24.kz/upload/iblock/be2/be23275baeed7087e03124597f7b4e73.jpg);background-size: 100%" id="aya14" class="shop-item-image">
+				<div style="background-color: rgb(0,0,0,0.5);width: 250px;height: 250px;display: none;justify-content: center;" id="a14" >
+				    <img src="https://cdn.pixabay.com/photo/2017/03/19/03/48/material-icon-2155442_960_720.png" alt="m" style="width: 100px;height: 50px; margin-top: 110px " class="lara">	
+			    </div>
+				<div style="background-color: rgb(0,0,0,0.5); width: 250px; height: 90px; margin-top:159px; text-align: center; color: white" id="b14">
+				    <h5 class="shop-item-title">'Alen' Cake</h5>
+		       	    <p class="shop-item-price">126$</p>
+		         	<img src="l.png" alt="k" style="width: 100px; margin-top: -25px">
+		        </div>
+		    </div>
+		</div>	
+
+		<div style="display:none;justify-content: center;padding-top: 50px;margin-top:-49.8px; margin-bottom: 50px" id="cakke3" >
+			<div style="width:250px; height: 250px; border:1px solid grey;background-image: url(https://dastarkhan24.kz/upload/iblock/5d4/5d44e990040494338fe9918669cfd4de.jpg);background-size: 100%;" id="aya15" class="shop-item-image">		       
+		        <div style="background-color: rgb(0,0,0,0.5);width: 250px;height: 250px;display: none;justify-content: center;" id="a15" >
+				    <img src="https://cdn.pixabay.com/photo/2017/03/19/03/48/material-icon-2155442_960_720.png" alt="m" style="width: 100px;height: 50px; margin-top: 110px " class="lara">	
+			    </div>
+			    <div style="background-color: rgb(0,0,0,0.5); width: 250px; height: 90px; margin-top:159px; text-align: center; color: white" id="b15"> 
+		          	<h5 class="shop-item-title">'Torte' Cake</h5>
+		       	    <p class="shop-item-price">121$</p>
+		       	    <img src="l.png" alt="k" style="width: 100px; margin-top: -25px">
+		        </div>
+		    </div>
+		    
+		    <div style="width:250px; height: 250px; border:1px solid grey;background-image: url(https://dastarkhan24.kz/upload/iblock/da3/da3cbc3fef1cfa2b5853ab820c8ebb3c.jpg);background-size: 100%" id="aya16" class="shop-item-image">
+		    	<div style="background-color: rgb(0,0,0,0.5);width: 250px;height: 250px;display: none;justify-content: center;" id="a16" >
+				    <img src="https://cdn.pixabay.com/photo/2017/03/19/03/48/material-icon-2155442_960_720.png" alt="m" style="width: 100px;height: 50px; margin-top: 110px " class="lara">	
+			    </div>
+		    	<div style="background-color: rgb(0,0,0,0.5); width: 250px; height: 90px; margin-top:159px; text-align: center; color: white" id="b16"> 
+		   	        <h5 class="shop-item-title">'Sweet' Cake</h5>
+		         	<p class="shop-item-price">125$</p>
+		        	<img src="l.png" alt="k" style="width: 100px; margin-top: -25px">
+		        </div>
+		    </div>
+
+			<div style="width:250px; height: 250px; border:1px solid grey;background-image: url(https://dastarkhan24.kz/upload/iblock/d2b/d2b19da3afa0099d977424e1345d994b.jpg);background-size: 100%" id="aya17" class="shop-item-image">
+				<div style="background-color: rgb(0,0,0,0.5);width: 250px;height: 250px;display: none;justify-content: center;" id="a17" >
+				    <img src="https://cdn.pixabay.com/photo/2017/03/19/03/48/material-icon-2155442_960_720.png" alt="m" style="width: 100px;height: 50px; margin-top: 110px " class="lara">	
+			    </div>
+				<div style="background-color: rgb(0,0,0,0.5); width: 250px; height: 90px; margin-top:159px; text-align: center; color: white" id="b17"> 
+					<h5 class="shop-item-title">'Ideal' cake</h5>
+		       	    <p class="shop-item-price">123$</p>
+		       	    <img src="l.png" alt="k" style="width: 100px; margin-top: -25px">
+		        </div>
+		    </div>
+
+			<div style="width:250px; height: 250px; border:1px solid grey;background-image: url(https://dastarkhan24.kz/upload/iblock/198/19813eead3bf08d10e3a9fd5e09cb950.jpg);background-size: 100%" id="aya18" class="shop-item-image">
+				<div style="background-color: rgb(0,0,0,0.5);width: 250px;height: 250px;display: none;justify-content: center;" id="a18" >
+				    <img src="https://cdn.pixabay.com/photo/2017/03/19/03/48/material-icon-2155442_960_720.png" alt="m" style="width: 100px;height: 50px; margin-top: 110px " class="lara">	
+			    </div>
+				<div style="background-color: rgb(0,0,0,0.5); width: 250px; height: 90px; margin-top:159px; text-align: center; color: white" id="b18"> 
+				    <h5 class="shop-item-title">'Emerald' cake</h5>
+		       	    <p class="shop-item-price">123$</p>
+		       	    <img src="l.png" alt="k" style="width: 100px; margin-top: -25px">
+		        </div>
+		    </div>
+
+			<div style="width:250px; height: 250px; border:1px solid grey;background-image: url(https://dastarkhan24.kz/upload/iblock/915/9159d6fec97451a702eceb9fa96842be.jpg);background-size: 100%" id="aya19" class="shop-item-image">
+				<div style="background-color: rgb(0,0,0,0.5);width: 250px;height: 250px;display: none;justify-content: center;" id="a19" >
+				    <img src="https://cdn.pixabay.com/photo/2017/03/19/03/48/material-icon-2155442_960_720.png" alt="m" style="width: 100px;height: 50px; margin-top: 110px " class="lara">	
+			    </div>
+				<div style="background-color: rgb(0,0,0,0.5); width: 250px; height: 90px; margin-top:159px; text-align: center; color: white" id="b19"> 
+					<h5 class="shop-item-title">'Fate' Cake</h5>
+		       		<p class="shop-item-price">126$</p>
+		       		<img src="l.png" alt="k" style="width: 100px; margin-top: -25px">
+		       	</div>
+		    </div>
+		</div>	
+
+		<div style="display: flex; padding-bottom: 20px; margin-top: -19px; padding-top: 25px;margin-bottom: -15px" class="basc">
+			<img src="https://img4.goodfon.ru/wallpaper/nbig/4/58/iaitsa-shokolad-shokoladnye-iaitsa-belyi-fon-konfety.jpg" alt="j" style="width: 1130px; height: 400px; margin-left: 110px; margin-right:-1100px; display: flex" id="mainImg1">
+			
+			<h1 style="float: left; margin-right: 220px; font-family: sans-serif; letter-spacing:5px; margin-left: 80px; margin-top:98px;color: darkred; transition: 1s;" id="welc">Welcome to <br> Sweetest! </h1>
+
+			<h1 style="display: none; margin-right: 220px; font-family: sans-serif; letter-spacing:5px; margin-left: 80px;z-index: 1; margin-top:28px;color: black; transition: 1s; cursor: pointer" id="welc1">Cake</h1>
+
+
+
+			<p class="texxt" style="font-size: 19px;margin-left: 60px;display: none; margin-right: 120px">We are glad to welcome you to our online store! <br> Here, we will tell you something interesting and get to know you better. <br>Sweetest was founded back in 2012. <br> Competently built system allowed soon to enter the widest market.
+			We process orders from all over Kazakhstan every second. <br>Why Choose Us? <br>
+			It's safe, convenient and fast with us! <br>When placing an order for Sweetest, the goods are dispatched within two days.The recipient can track the parcel throughout its journey.
+      		All information comes to your email. The goods are stored packed in foil, in equipped containers,therefore, once you place an order, you will receive it in perfect condition.On our website, each item is accompanied by a detailed description and a beautiful gallery.As well as customer reviews and ratings.So, making a choice is quick and easy.</p>
+
+
+
+	     </div>
+	     <div style="width: 700px; margin-left: 100px; border: 1px solid grey; padding: 10px 15px 77px 20px; margin-top: 50px; display: none;margin-bottom: 50px" id="ordering">
+		    	<h2 style="margin-bottom: 20px; font-family:cursive;">Your basket</h2>
+		    	<hr>
+		    	<div class="cart-row">
+						<span class="cart-item cart-header cart-column">Items</span>
+						<span class="cart-price cart-header cart-column">Price</span>
+						<span class="cart-quantity cart-header cart-column">Quantity</span>
+				</div>
+		    	<div class="cart-items"></div>
+
+					<div class="cart-total">
+						<strong class="cart-total-title">Sum</strong>
+						<span class="cart-total-price">0</span>
+					</div>
+          </div>
+    
+		  <div class="dws-wrapper" >
+        	<section class="container">
+        		<div class="img-box" id="n5" style="background-image: url(f.png);">
+    				<div class="content1" id="cnt1" >
+    					<h2>Amelia Brown</h2>
+    					<p>CEO</p>
+    				</div>
+        		</div>
+        		<div class="img-box" id="n6" style="background-image: url(ff.png);">
+        			<div class="content1" id="cnt2">
+    					<h2>Samuel Adamson</h2>
+    					<p>Chief Pastry Chef</p>
+    				</div>
+        		</div>
+        		<div class="img-box" id="n7" style="background-image: url(fff.png);">
+        			<div class="content1" id="cnt3">
+    					<h2>Lily King</h2>
+    					<p>CFO</p>
+    				</div>
+        		</div>
+        	</section>
+            </div>
+
+        	
+        	<h1 style="font-family: sans-serif; letter-spacing:5px; padding-left: 80px; margin-bottom: 60px; margin-top: -20px; background-color: brown; color: white " class="rr" id="rr1">The Best Confectionery</h1>
+
+        	<h1 style="font-family: sans-serif; letter-spacing:5px; padding-left: 80px; margin-bottom: 60px; margin-top: 20px;  color: black;display: none;margin-top:-10px; cursor: pointer;" id="welc2">Candy</h1>
+
+        	<div id="iii" style="background-color: white; margin-top:-20px">
+        	<section class="container" >
+
+        		<div class="img-box" id="n8" style="background-image: url(https://v.img.com.ua/b/orig/6/ed/361c91971b514e3511fa3e013422eed6.jpg);">
+    				<div class="content1"id="cnt4">
+    					<h2>Emily Walker</h2>
+    					<p>Chief Accountant</p>
+    				</div>
+        		</div>
+
+        		<div class="img-box" id="n9" style="background-image: url(https://s1.1zoom.ru/big0/406/Candy_Chocolate_Gifts_471354.jpg);">
+        			<div class="content1" id="cnt5">
+    					<h2>Olivia Smith</h2>
+    					<p>General Manager</p>
+    				</div>
+        		</div>
+        		
+        		<div class="img-box" id="n10" style="background-image: url(https://i.pinimg.com/474x/05/46/56/054656721465cf18e83ccca52eaff7e2--flower-boxes-macaroons.jpg);">
+        			<div class="content1" id="cnt6">
+    					<h2>Scarlett Young</h2>
+    					<p>Administrator</p>
+    				</div>
+        		</div>	
+        	 </section>
+             </div>
+
+        	<h1 style="font-family: sans-serif; letter-spacing:5px; padding-left: 80px; margin-top:-20px; margin-bottom:-50px; display: flex; color: white; background-color: brown" class="r" id="rrd">Service at the Highest Level</h1>
+
+        	<div id="i2" style="background-color: white; margin-top:80px;display:flex;">
+        	<section class="container">
+        		<div class="img-box" id="img-box1" style="background-image: url(https://p1.zoon.ru/1/c/5cb987203e01c33ea0531702_5cbd6e83dfa0b.jpg);"></div>
+        		
+        		<div class="img-box" id="img-box2" style="background-image: url(https://img.freepik.com/free-photo/waitress-server-helping-client-in-cafe_93675-79171.jpg?size=626&ext=jpg);"></div>
+        		<div class="img-box" id="img-box3" style="background-image: url(https://thumbs.dreamstime.com/b/%E5%92%96%E5%95%A1%E9%A6%86%E7%9A%84%E9%A1%BE%E5%AE%A2%E9%80%9A%E8%BF%87%E4%BF%A1%E7%94%A8%E5%8D%A1%E6%94%AF%E4%BB%98%E7%BB%99%E5%94%AE%E8%B4%A7%E5%91%98-141860359.jpg);"></div>
+        	</section>
+        </div>
+        	
+        	<h1 style="font-family: sans-serif; letter-spacing:5px; padding-left: 80px; margin-bottom: 50px; margin-top: 30px; display: flex;  background-color: brown; color: white" class="r1" id="rrd1">Beautiful and Cozy Place</h1>
+
+        	<div id="i3" style="background-color: white; margin-top:20px; display: flex;" >
+        	<section class="container">
+        		<div class="img-box" id="img-box4" style="background-image: url(https://static.zakon.kz/uploads/posts/2015-01/thumbs/1422335150_117.jpg);"></div>
+        		
+        		<div class="img-box" id="img-box5" style="background-image: url(https://hornews.com/images/news_large/3c24b5fe2676f6164ebb1366377bda23.gif);"></div>
+        		
+        		<div class="img-box" id="img-box6" style="background-image: url(https://www.ivetta.ua/wp-content/uploads/2016/01/desert.jpg);"></div>
+        	</section>
+            </div>
+
+        	
+        	<div style="margin-left:60px; margin-right:60px;display: none; margin-bottom: 30px" class="viss">
+        		<img id="mml" src="https://static.zakon.kz/uploads/posts/2015-01/thumbs/1422335149_124.jpg" alt="kj" style="width: 50%;height:400px;" >
+        		<img  id="mmm" src="https://render.fineartamerica.com/images/rendered/default/greeting-card/images/artworkimages/medium/1/paris-laduree-door-paris-laduree-sign-paris-laduree-architecture-door-storefront-kathy-fornal.jpg?&targetx=-30&targety=0&imagewidth=560&imageheight=700&modelwidth=500&modelheight=700&backgroundcolor=8F9290&orientation=1" alt="hj" style="width: 60%; height: 810px;margin-left: 8px">
+        	</div>
+
+        	<img src="https://www.ivetta.ua/wp-content/uploads/2016/01/laduree-700x467.jpg" alt="jk" style="width: 45.7%; height: 400px;margin-left:60px; margin-right:60px; margin-top: -430px;display: none; margin-bottom: 10px" class="viss1">
+        	
+        	<div class="jkl" style="margin-left: 60px; display: none; padding-bottom: 20px">
+        	  <h4>Karaganda</h4>
+        	  <p style="margin-left:-116px"><br><br>Lenin Avenue 30, Karagandy 100000 <br>	 +7(747)-288-27-54<br>+7(701)-444-78-89</p>
+	        </div>
+
+
+	        
+
+            <div style="background-color: brown; height: 350px; padding-left:460px;padding-top: 40px;  border-top:1px white solid;" class="fut">
+            	<div id="map" style="width: 45%; height: 270px; margin-top: 5px;float: left; margin-left: -180px; margin-right: 110px"></div>	
+            		<h2 style="text-align: left; margin-bottom: 50px; margin-top: 50px; margin-left: -520px; " id="contactt">CONTACT US:</h2>
+    				<ul style="list-style-type: none;">
+                    <li><a href="https://www.instagram.com/bitlabacademy" target="_blank"><img src="https://pngicon.ru/file/uploads/telegram.png" alt="j" style="width:6.2%; float: left;margin-right: 20px"></a></li>
+				    <li><a href="https://telegram.me/zhuanyshev" target="_blank"><img src="https://ladoga-klub.ru/public/template/tmp/facebook_f.png" alt="mj" style="width:6%;float: left;margin-right: 20px"></a></li>
+					<li><a href="https://www.facebook.com/bitlab.kz/" target="_blank"><img src="https://www.podushechka.biz/wp-content/uploads/2018/10/instagram-colourful-icon.png" alt="j" style="width:6%;float: left;margin-right: 20px"></a></li>
+					<li><a href="https://twitter.com/bitlab_academy"><img src="https://proxy.imgsmail.ru/?email=a9959627%40mail.ru&e=1507893258&h=TxQqsu-PBa9NHNTDvD4obA&url171=aW1nLnN0YXJ0ZW1sLmNvbS9ydS91c2VyX2ZpbGU_cmVzb3VyY2U9aGltZyZ1c2VyX2lkPTc0MjYyMiZuYW1lPTZmY3RjNGlhOWhxZTM5NXp0OXo1d3Juamp4ZTZjaDN6aXIzNzRpMzNpZWd3NzZvN245NGRmcnV1bzhjaDh6bWhydWZjcXpiOG9naTU4YQ~~&is_https=0" alt="j" style="width: 7.5%;margin-right: 20px; margin-top:-7.5px"></a></li>
+                </ul> 
+                <p style="margin-left: 110px; color: grey">2020 © Sweet.kz.</p>  </div>
+
+
+    <script>
+    	
+
+    	$(document).ready(function(){
+    		$('#myButton').click(function(){
+    			alert("Are you sure you want to buy? Then contact us");
+    			document.querySelector(".tat").style.display="none";
+    		})
+    	})
+
+
+
+    	$(document).ready(function() {
+            $('.minus').click(function () {
+                var $input = $(this).parent().find('input');
+                var count = parseInt($input.val()) - 1;
+                count = count < 1 ? 1 : count;
+                $input.val(count);
+                $input.change();
+                return false;
+            });
+            $('.plus').click(function () {
+                var $input = $(this).parent().find('input');
+                $input.val(parseInt($input.val()) + 1);
+                $input.change();
+                return false;
+            });
+        });
+
+		function s1(){
+			document.querySelector(".s1").style.display="flex";
+			
+        }
+
+		function close_s1(){
+		    document.querySelector(".l1").style.display="none";
+		    document.body.style.overflow="scroll";
+		    document.getElementById("id1").value="";
+		    document.getElementById("id2").value="";
+		    document.getElementById("m1").value="";
+		    document.getElementById("m2").value="";
+		    document.getElementById("m3").value="";
+		    document.getElementById("m4").value="";
+		    document.getElementById("m5").value="";
+		    document.getElementById("m6").value="";
+		    }
+		
+		function login(name){
+			document.querySelector(".s3").style.display="inline";
+			document.getElementById("user_name").innerHTML= name;
+			document.querySelector("#plus1").style.display="none"
+			document.querySelector(".s1").style.display="none";
+			close_s1();
+		}
+
+		function out(){
+			document.querySelector('.tat').style.display="none";
+		}
+		
+
+	    function logout(name){
+	    	document.querySelector(".s3").style.display="none";	
+		    document.querySelector("#plus1").style.display="inline";
+		    document.getElementById("user_name").innerHTML= name;
+		    }
+	    
+	    $(document).ready(function(){
+	    	$(".icon").click(function(){
+	    		document.querySelector(".s1").style.display="none";	
+		        document.querySelector(".s3").style.display="none";	
+		        document.querySelector("#plus1").style.display="inline";
+	    	})
+	    	$("#icon5").click(function(){
+	    		document.querySelector(".s1").style.display="none";	
+		        document.querySelector(".s3").style.display="none";	
+		        document.querySelector("#plus1").style.display="inline";
+		        document.querySelector(".l1").style.display="none";
+
+		    })})
+	  
+	    $(document).ready(function(){
+	    	$("#reg").click(function(){
+	    		document.querySelector(".l1").style.display="inline";	
+		        })})
+
+	    var lastValue = $('select').val(); 
+			$('select').on('change', function(e){
+    			var value = $(this).val();
+     	    	ok=false
+     	    	if(ok){
+     	    		lastValue=value;
+     	    	}else{
+     	    		$(this).val(lastValue);
+     	    	}});
+		function plus(){
+			$("#l").click(function(){
+				document.querySelector("#plus1").style.visibility="hidden";
+				document.querySelector(".s1").style.display="none";	
+			})
+		}
+		$(document).ready(function(){
+			$("#n3").click(function(){
+				document.querySelector("#welc").style.display="flex";
+				document.getElementById("welc").innerHTML="About Sweetest";
+				document.querySelector("#welc").style.color="white";
+				document.querySelector("#welc").style.marginTop="0px";
+				document.querySelector(".basc").style.display="flex";
+				document.querySelector(".basc").style.background="black";
+				document.querySelector(".basc").style.color="white";
+				document.querySelector("#mainImg1").style.display="none";
+				document.querySelector(".texxt").style.display="flex";
+				
+			    document.querySelector("#n5").style.backgroundImage="url(n.jpg)";
+				document.querySelector("#n6").style.backgroundImage="url(nn.jpg)";
+				document.querySelector("#n7").style.backgroundImage="url(nnn.jpg)";
+				document.querySelector("#n8").style.backgroundImage="url(d.jpg)";
+				document.querySelector("#n9").style.backgroundImage="url(dd.jpg)";
+				document.querySelector("#n10").style.backgroundImage="url(ddd.jpg)";
+				document.querySelector(".dws-wrapper").style.background="black";
+				document.querySelector(".dws-wrapper").style.display="flex";
+				
+				
+				document.querySelector("#iii").style.background="black";
+				document.querySelector("#iii").style.display="flex";
+				document.querySelector("#iii").style.marginTop="-80px";
+				document.querySelector("#iii").style.marginBottom="-50px";
+				
+				document.querySelector("#i2").style.display="none";
+				document.querySelector("#i3").style.display="none";
+				
+				document.querySelector("#cnt1").style.display="block";
+				document.querySelector("#cnt2").style.display="block";
+				document.querySelector("#cnt3").style.display="block";
+				document.querySelector("#cnt4").style.display="block";
+				document.querySelector("#cnt5").style.display="block";
+				document.querySelector("#cnt6").style.display="block";
+													
+				document.querySelector(".rr").style.display="none";
+				document.querySelector(".r").style.display="none";
+				document.querySelector(".r1").style.display="none";
+				
+				document.querySelector(".viss").style.display="none";
+				document.querySelector(".viss1").style.display="none";
+				document.querySelector(".jkl").style.display="none";
+				
+				document.querySelector(".fut").style.display="none";
+				document.querySelector(".fut").style.background="black";
+				document.querySelector(".fut").style.height="300px";
+				document.querySelector("#contactt").style.textAlign="center";
+
+				document.querySelector(".foo").style.background="darkred";
+				
+				document.querySelector("#map").style.display="none";
+				document.querySelector("#welc1").style.display="none";
+				document.querySelector("#welc2").style.display="none";
+				document.querySelector("#cakke").style.display="none";
+				document.querySelector("#cakke1").style.display="none";
+				document.querySelector("#cakke2").style.display="none";
+				document.querySelector("#cakke3").style.display="none";
+				
+			});
+		});
+
+		$(document).ready(function(){
+			$("#n2").click(function(){
+				document.querySelector("#ordering").style.display="none";
+				document.querySelector(".basc").style.display="flex";
+				document.querySelector(".basc").style.background="white";
+				document.querySelector("#welc").style.display="flex";
+				document.querySelector("#welc").style.color="black";
+				document.getElementById("welc").innerHTML="Contact";
+				document.querySelector("#welc").style.marginTop="0px";
+				document.querySelector("#mainImg1").style.display="none";
+		        document.querySelector(".texxt").style.display="none";
+				
+				document.querySelector(".dws-wrapper").style.background="white";
+				document.querySelector(".dws-wrapper").style.display="none";
+					
+				document.querySelector("#iii").style.display="none";
+				document.querySelector("#i2").style.display="none";
+				document.querySelector("#i3").style.display="none";
+				
+				document.querySelector(".rr").style.display="none";
+				document.querySelector(".r").style.display="none";
+				document.querySelector(".r1").style.display="none";
+				
+				document.querySelector(".viss").style.display="flex";
+				document.querySelector(".viss1").style.display="flex";
+				document.querySelector(".jkl").style.display="flex";
+				
+				document.querySelector(".fut").style.background="lightblue";
+				document.querySelector(".fut").style.height="300px";
+				document.querySelector("#contactt").style.textAlign="center";
+
+				document.querySelector(".foo").style.background="lightblue";
+				document.querySelector("#map").style.display="none";
+				document.querySelector("#welc1").style.display="none";
+				document.querySelector("#welc2").style.display="none";
+				document.querySelector("#cakke").style.display="none";
+				document.querySelector("#cakke1").style.display="none";
+				document.querySelector("#cakke2").style.display="none";
+				document.querySelector("#cakke3").style.display="none";
+				document.querySelector(".fut").style.display="block";
+				
+
+			});
+		});
+		
+		
+		
+		$(document).ready(function(){
+			$("#nn").click(function(){
+				document.querySelector(".basc").style.display="flex";
+				document.querySelector(".basc").style.background="white";
+				document.querySelector(".basc").style.color="black";
+				document.querySelector("#welc").style.display="none";
+				document.querySelector("#welc1").style.display="flex";
+				document.querySelector("#mainImg1").style.display="none";
+				document.querySelector(".texxt").style.display="none";
+		        
+				document.querySelector(".dws-wrapper").style.background="white";
+				document.querySelector(".dws-wrapper").style.display="flex";
+				
+				document.querySelector("#n5").style.backgroundImage="url(hg.jpg)";
+				document.querySelector("#n6").style.backgroundImage="url(hg1.jpg)";
+				document.querySelector("#n7").style.backgroundImage="url(hg2.jpg)";
+				
+                document.querySelector("#iii").style.display="flex";
+				document.querySelector("#iii").style.background="white";
+				document.querySelector("#iii").style.marginTop="-47px";
+			
+				document.querySelector("#cnt1").style.display="none";
+				document.querySelector("#cnt2").style.display="none";
+				document.querySelector("#cnt3").style.display="none";
+				document.querySelector("#cnt4").style.display="none";
+				document.querySelector("#cnt5").style.display="none";
+				document.querySelector("#cnt6").style.display="none";
+				
+				document.querySelector("#n8").style.backgroundImage="url(k.jpeg)";
+				document.querySelector("#n9").style.backgroundImage="url(kk.jpg)";
+				document.querySelector("#n10").style.backgroundImage="url(kkk.jpg)";
+				
+				document.querySelector("#i2").style.display="none";
+						    
+				document.querySelector("#i3").style.display="none";
+				
+				document.querySelector("#welc2").style.display="flex";
+				document.querySelector(".rr").style.display="none";
+				
+				document.querySelector(".r").style.display="none";
+				
+				document.querySelector(".r1").style.display="none";
+				
+				document.querySelector(".viss").style.display="none";
+				document.querySelector(".viss1").style.display="none";
+				document.querySelector(".jkl").style.display="none";
+				
+				document.querySelector(".fut").style.display="block";
+				document.querySelector(".fut").style.background="white";
+				document.querySelector(".fut").style.height="200px";
+				document.querySelector("#map").style.display="none";
+				document.querySelector("#contactt").style.textAlign="center";
+
+				document.querySelector(".foo").style.background="purple";
+				document.querySelector("#cakke").style.display="none";
+				document.querySelector("#cakke1").style.display="none";
+				document.querySelector("#cakke2").style.display="none";
+				document.querySelector("#cakke3").style.display="none";
+				document.querySelector("#iii").style.marginBottom="0px";
+				
+				});
+		});
+			$(document).ready(function(){
+			  $("#welc2").click(function(){
+				document.querySelector(".basc").style.display="flex";
+				document.querySelector(".basc").style.background="white";
+				document.querySelector("#welc").style.display="none";
+				document.querySelector("#mainImg1").style.display="none";
+		        document.querySelector(".texxt").style.display="none";
+				
+				document.querySelector(".dws-wrapper").style.background="white";
+				document.querySelector(".dws-wrapper").style.display="none";
+					
+				document.querySelector("#iii").style.display="none";
+				document.querySelector("#i2").style.display="none";
+				document.querySelector("#i3").style.display="none";
+				
+				document.querySelector(".rr").style.display="none";
+				document.querySelector(".r").style.display="none";
+				document.querySelector(".r1").style.display="none";
+				
+				document.querySelector(".viss").style.display="none";
+				document.querySelector(".viss1").style.display="none";
+				document.querySelector(".jkl").style.display="none";
+				
+				document.querySelector(".fut").style.display="none";
+				
+				document.querySelector(".foo").style.background="lightblue";
+				document.querySelector("#map").style.display="none";
+				document.querySelector("#welc1").style.display="none";
+				document.querySelector("#welc2").style.display="none";
+				document.querySelector("#cakke").style.display="flex";
+				document.querySelector("#cakke1").style.display="flex";
+				document.querySelector("#cakke2").style.display="none";
+				document.querySelector("#cakke3").style.display="none";
+				document.querySelector('#aya').style.backgroundSize="115%";
+				document.querySelector('#aya').style.backgroundImage="url(https://static.wixstatic.com/media/b84e6a_0e3c1a98152e4b10abde5142ec245e82~mv2_d_3024_4032_s_4_2.jpg/v1/fill/w_3024,h_4032,al_c,q_85/b84e6a_0e3c1a98152e4b10abde5142ec245e82~mv2_d_3024_4032_s_4_2.jpg)";
+				document.getElementById("dan").innerHTML="La Madeline au Truffe";
+				document.getElementById("lan").innerHTML="150$";
+				document.querySelector('#aya1').style.backgroundImage="url(https://chocodiva.ru/d/klubnika_v_shokolade_24_sht_71.png)";
+				document.querySelector('#aya1').style.backgroundSize="100%";				
+				document.getElementById("dan1").innerHTML="Vosges";
+				document.getElementById("lan1").innerHTML="78$";
+				document.querySelector('#aya2').style.backgroundImage="url(https://cs5.livemaster.ru/storage/ca/ae/45aaedb7977f87e98090ca06d63y--podarki-k-prazdnikam-konfety-ruchnoj-raboty.jpg)";
+				document.querySelector('#aya2').style.backgroundSize="110%";
+				document.getElementById("dan2").innerHTML="To'ak";
+				document.getElementById("lan2").innerHTML="150$";
+				document.querySelector("#aya3").style.backgroundImage="url(https://chocodiva.ru/d/dddss123.png)";
+				document.getElementById("dan3").innerHTML="Godiva";
+				document.getElementById("lan3").innerHTML="148$";				
+				document.querySelector('#aya3').style.backgroundSize="110%";
+				document.querySelector("#aya4").style.backgroundImage="url(https://benkoni.com/image/catalog/blog/tovary-i-sslyki/shokoladnye-konfety-benkoni-ruchnaya-rabota-brendirovanie.jpg)";
+				document.getElementById("dan4").innerHTML="Pierre Marcolin";
+				document.getElementById("lan4").innerHTML="128$";				
+				
+				document.querySelector("#aya5").style.backgroundImage="url(https://s.sakh.com/i/b/market/2019/11/11/6333e80dd95cbaae5f4d28e783183928.jpeg)";
+				document.getElementById("dan5").innerHTML="Torre";
+				document.getElementById("lan5").innerHTML="68$";				
+				document.querySelector("#aya6").style.backgroundImage="url(https://ябысъел.рф/wp-content/uploads/%D0%B1%D0%B1%D0%B1%D0%B1%D0%B1-600x600.jpg)";
+				document.getElementById("dan6").innerHTML="Donnelly";
+				document.getElementById("lan6").innerHTML="76$";				
+				document.querySelector("#aya7").style.backgroundImage="url(https://images.izi.ua/17792201)";
+				document.getElementById("dan7").innerHTML="Ozer";
+				document.getElementById("lan7").innerHTML="82$";				
+				document.querySelector("#aya8").style.backgroundImage='url(https://s.sakh.com/i/b/market/2019/11/11/4b8a214edb70e1e846be8735b3af05d6.jpeg)';
+				document.getElementById("dan8").innerHTML="Gera";
+				document.getElementById("lan8").innerHTML="82$";				
+				document.querySelector("#aya9").style.backgroundImage="url(https://lh3.googleusercontent.com/proxy/jrOj-4U_36eehvXNd26rTF5t48sWV5CL-M_z4SYcBJ5PQSAbkmUKaoLzd3NWg463IuEDXXpU4YtniRpZ-ZxAxB0rjBjHlfWxunnpcNAFEEXgx7MRLL6JKX-ajnRdUCI4gfF3Te4e-7g7yreEm_vyAkjJyJIWUB16Aw)";
+				document.getElementById("dan9").innerHTML="GF";
+				document.getElementById("lan9").innerHTML="87$";				
+				document.querySelector("#cakke1").style.marginBottom='50px';
+				
+				$(document).ready(function(){
+					$('#aya').click(function(){
+						document.querySelector(".tat").style.display="flex";
+				        document.querySelector(".bts1").innerHTML='150$';
+				        document.querySelector(".bts").innerHTML="Truffe";
+				        document.getElementById("bts2").src="https://static.wixstatic.com/media/b84e6a_0e3c1a98152e4b10abde5142ec245e82~mv2_d_3024_4032_s_4_2.jpg/v1/fill/w_3024,h_4032,al_c,q_85/b84e6a_0e3c1a98152e4b10abde5142ec245e82~mv2_d_3024_4032_s_4_2.jpg";
+				        document.querySelector("#para").innerHTML="'Truffe' is made from choco based on condensed milk and saturated with melting filling made from soft whipped cream. Decorated with fresh strawberries and deliciously complements a cup of coffee or tea.";
+				         document.querySelector(".icon1").style.marginTop="-480px";
+						
+
+				    })
+					$('#aya1').click(function(){
+						document.querySelector(".tat").style.display="flex";
+				        document.querySelector(".bts1").innerHTML='78$';
+				        document.querySelector(".bts").innerHTML="Vosges";
+						document.getElementById("bts2").src="https://chocodiva.ru/d/klubnika_v_shokolade_24_sht_71.png";
+						document.querySelector("#para").innerHTML="An appetizing red sponge cake soaked in cream based on Mascarpone cheese has an exquisite taste and will delightfully complement a cup of tea on a festive table.";
+						document.querySelector(".icon1").style.marginTop="-430px";
+						
+					})
+					$('#aya2').click(function(){
+						document.querySelector(".tat").style.display="flex";
+				        document.querySelector(".bts1").innerHTML='150$';
+				        document.querySelector(".bts").innerHTML="To'ak";
+						document.getElementById("bts2").src="https://cs5.livemaster.ru/storage/ca/ae/45aaedb7977f87e98090ca06d63y--podarki-k-prazdnikam-konfety-ruchnoj-raboty.jpg";
+						document.querySelector("#para").innerHTML="We prepare exclusive handmade cakes to order. For wedding, anniversary and birthday. Single and multi-tiered with a unique composition - patterns, flowers and berries.";
+						document.querySelector(".icon1").style.marginTop="-430px";
+						
+
+					})
+					$('#aya3').click(function(){
+						document.querySelector(".tat").style.display="flex";
+				        document.querySelector(".bts1").innerHTML='148$';
+				        document.querySelector(".bts").innerHTML="Godiva";
+						document.getElementById("bts2").src="https://chocodiva.ru/d/dddss123.png";
+						document.querySelector("#para").innerHTML="Appetizing chocolate cake with delicate butter cream, decorated with airy cream, grated chocolate and juicy cherries. Will decorate any feast and give sweet pleasure!";
+						document.querySelector(".icon1").style.marginTop="-430px";
+						
+
+					})
+					$('#aya4').click(function(){
+						document.querySelector(".tat").style.display="flex";
+				        document.querySelector(".bts1").innerHTML='128$';
+				        document.querySelector(".bts").innerHTML="Pierre Marcolin";
+						document.getElementById("bts2").src="https://benkoni.com/image/catalog/blog/tovary-i-sslyki/shokoladnye-konfety-benkoni-ruchnaya-rabota-brendirovanie.jpg";
+						document.querySelector("#para").innerHTML="Delicious chocolate sponge cake, the most delicate layer of custard with boiled condensed milk and all this is decorated with chocolate cream - our Prague cake is so good that there is nothing to add. Well, maybe a cup of hot tea or coffee.";
+						document.querySelector(".icon1").style.marginTop="-480px";
+						
+					})
+					$('#aya5').click(function(){
+						document.querySelector(".tat").style.display="flex";
+				        document.querySelector(".bts1").innerHTML='68$';
+				        document.querySelector(".bts").innerHTML="Torre";
+						document.getElementById("bts2").src="https://s.sakh.com/i/b/market/2019/11/11/6333e80dd95cbaae5f4d28e783183928.jpeg";
+						document.querySelector(".icon1").style.marginTop="-450px";
+						document.querySelector("#para").innerHTML="A cake made of fragrant honey cakes is soaked in delicate creamy curd cream and decorated with chocolate mastic, airy meringues and fresh berries. A bright addition to any holiday!";
+
+					})
+					$('#aya6').click(function(){
+						document.querySelector(".tat").style.display="flex";
+				        document.querySelector(".bts1").innerHTML='76$';
+				        document.querySelector(".bts").innerHTML="Donnelly";
+						document.getElementById("bts2").src="https://ябысъел.рф/wp-content/uploads/%D0%B1%D0%B1%D0%B1%D0%B1%D0%B1-600x600.jpg";
+						document.querySelector(".icon1").style.marginTop="-450px";
+						document.querySelector("#para").innerHTML="Delicate cake made of condensed milk based cakes, saturated with melting soft whipped cream filling and festively decorated by our pastry chef. A tasty addition to the festive table.";
+
+
+					})
+					$('#aya7').click(function(){
+						document.querySelector(".tat").style.display="flex";
+				        document.querySelector(".bts1").innerHTML='82$';
+				        document.querySelector(".bts").innerHTML="Ozer";
+						document.getElementById("bts2").src="https://images.izi.ua/17792201";
+						document.querySelector(".icon1").style.marginTop="-430px";
+						document.querySelector("#para").innerHTML="An unusual combination of products - carrots, raisins and walnuts with a delicious biscuit soaked in cheese cream in the 'Carrot' cake. Try a bite of this tasty treat.";
+
+
+					})
+					$('#aya8').click(function(){
+						document.querySelector(".tat").style.display="flex";
+				        document.querySelector(".bts1").innerHTML='82$';
+				        document.querySelector(".bts").innerHTML="Gera";
+						document.getElementById("bts2").src="https://s.sakh.com/i/b/market/2019/11/11/4b8a214edb70e1e846be8735b3af05d6.jpeg";
+						document.querySelector(".icon1").style.marginTop="-450px";
+						document.querySelector("#para").innerHTML="This appetizing biscuit cake is prepared by the pastry chef of Yubileiny from natural ingredients according to a home recipe. Contains crispy meringue pieces, infused with delicate butter cream.";
+
+					})
+					$('#aya9').click(function(){
+						document.querySelector(".tat").style.display="flex";
+				        document.querySelector(".bts1").innerHTML='87$';
+				        document.querySelector(".bts").innerHTML="GF";
+						document.getElementById("bts2").src="https://s.sakh.com/i/b/market/2019/11/11/4b8a214edb70e1e846be8735b3af05d6.jpeg";
+						document.querySelector(".icon1").style.marginTop="-450px";
+						document.querySelector("#para").innerHTML="Delicate yoghurt cake, melting in your mouth, made on the basis of creamy curd mousse and soaked in syrup. Covered with soft glaze, garnished with whipped cream and aromatic berries.";
+
+					});});
+				
+			});
+		});
+		
+		$(document).ready(function(){
+			$("#welc1").click(function(){
+				document.querySelector(".basc").style.display="flex";
+				document.querySelector(".basc").style.background="white";
+				document.querySelector("#welc").style.display="none";
+				document.querySelector("#mainImg1").style.display="none";
+		        document.querySelector(".texxt").style.display="none";
+				
+				document.querySelector(".dws-wrapper").style.background="white";
+				document.querySelector(".dws-wrapper").style.display="none";
+					
+				document.querySelector("#iii").style.display="none";
+				document.querySelector("#i2").style.display="none";
+				document.querySelector("#i3").style.display="none";
+				
+				document.querySelector(".rr").style.display="none";
+				document.querySelector(".r").style.display="none";
+				document.querySelector(".r1").style.display="none";
+				
+				document.querySelector(".viss").style.display="none";
+				document.querySelector(".viss1").style.display="none";
+				document.querySelector(".jkl").style.display="none";
+				
+				document.querySelector(".fut").style.display="none";
+				
+				document.querySelector(".foo").style.background="lightblue";
+				document.querySelector("#map").style.display="none";
+				document.querySelector("#welc1").style.display="none";
+				document.querySelector("#welc2").style.display="none";
+				document.querySelector("#cakke").style.display="flex";
+				document.querySelector("#cakke1").style.display="flex";
+				document.querySelector("#cakke2").style.display="flex";
+				document.querySelector("#cakke3").style.display="flex";
+				document.querySelector("#aya").style.backgroundImage="url(https://dastarkhan24.kz/upload/iblock/31f/31fc44035da02e7ac2421bc8af35bed5.jpg)";
+				document.querySelector("#aya1").style.backgroundImage="url(https://dastarkhan24.kz/upload/iblock/6fa/6faf913ab348d0a18c88c291bac2d5a8.jpg)";
+				document.querySelector("#aya2").style.backgroundImage="url(https://dastarkhan24.kz/upload/iblock/983/983107cbb6fee8782df025a7cbadebf2.jpg)";
+				document.querySelector("#aya3").style.backgroundImage="url(https://dastarkhan24.kz/upload/iblock/7db/7db9be85f5476557d36dc5f2e23144e9.jpg)";
+				document.querySelector("#aya4").style.backgroundImage="url(https://dastarkhan24.kz/upload/iblock/c0f/c0f0e8cd9011be7445d92e36ba3ce0e1.jpg)";
+				document.querySelector("#aya5").style.backgroundImage="url(https://dastarkhan24.kz/upload/iblock/6d6/6d627d43626688eaa5a345f27a1485ed.jpg)";
+				document.querySelector("#aya6").style.backgroundImage="url(https://dastarkhan24.kz/upload/iblock/5a1/5a141bfba8e35361cc8e5c9b9804cdb3.jpg)";
+				document.querySelector("#aya7").style.backgroundImage="url(https://dastarkhan24.kz/upload/iblock/2f8/2f89093fb486d306ef1a7e572d4e95c2.jpg)";
+				document.querySelector("#aya8").style.backgroundImage="url(https://dastarkhan24.kz/upload/iblock/121/1211cc8630feb33cc71b20cd120ccf7e.jpg)";
+				document.querySelector("#aya9").style.backgroundImage="url(https://dastarkhan24.kz/upload/iblock/3c5/3c5291e507b7651db45dba748f6548d6.jpg)";
+				document.querySelector("#cakke1").style.marginBottom='0px';				
+				document.querySelector("#ordering").style.display="none";
+				document.querySelector("#aya").style.backgroundSize="100%";
+				document.querySelector("#aya1").style.backgroundSize="100%";
+				document.querySelector("#aya2").style.backgroundSize="100%";
+				document.querySelector("#aya3").style.backgroundSize="100%";
+				document.querySelector("#aya4").style.backgroundSize="100%";
+				document.querySelector("#aya5").style.backgroundSize="100%";
+				document.querySelector("#aya6").style.backgroundSize="100%";
+				document.querySelector("#aya7").style.backgroundSize="100%";
+				document.querySelector("#aya8").style.backgroundSize="100%";
+				document.querySelector("#aya9").style.backgroundSize="100%";
+				
+				$(document).ready(function(){
+					$('#aya').click(function(){
+						document.querySelector(".tat").style.display="flex";
+				        document.querySelector(".bts1").innerHTML='123$';
+				        document.querySelector(".bts").innerHTML="'Milky' Cake";
+				        document.getElementById("bts2").src="https://dastarkhan24.kz/upload/iblock/31f/31fc44035da02e7ac2421bc8af35bed5.jpg";
+				        document.querySelector("#para").innerHTML="Delicate cake 'Milk Girl' is made from cakes based on condensed milk and saturated with melting filling made from soft whipped cream. Decorated with fresh strawberries and deliciously complements a cup of coffee or tea.";
+				         document.querySelector(".icon1").style.marginTop="-480px";
+						
+
+				    })
+					$('#aya1').click(function(){
+						document.querySelector(".tat").style.display="flex";
+				        document.querySelector(".bts1").innerHTML='93$';
+				        document.querySelector(".bts").innerHTML="'Red Velvet'";
+						document.getElementById("bts2").src="https://dastarkhan24.kz/upload/iblock/6fa/6faf913ab348d0a18c88c291bac2d5a8.jpg";
+						document.querySelector("#para").innerHTML="An appetizing red sponge cake soaked in cream based on Mascarpone cheese has an exquisite taste and will delightfully complement a cup of tea on a festive table.";
+						document.querySelector(".icon1").style.marginTop="-430px";
+						
+					})
+					$('#aya2').click(function(){
+						document.querySelector(".tat").style.display="flex";
+				        document.querySelector(".bts1").innerHTML='110$';
+				        document.querySelector(".bts").innerHTML="'Customized' Cake";
+						document.getElementById("bts2").src="https://dastarkhan24.kz/upload/iblock/983/983107cbb6fee8782df025a7cbadebf2.jpg";
+						document.querySelector("#para").innerHTML="We prepare exclusive handmade cakes to order. For wedding, anniversary and birthday. Single and multi-tiered with a unique composition - patterns, flowers and berries.";
+						document.querySelector(".icon1").style.marginTop="-480px";
+						
+
+					})
+					$('#aya3').click(function(){
+						document.querySelector(".tat").style.display="flex";
+				        document.querySelector(".bts1").innerHTML='80$';
+				        document.querySelector(".bts").innerHTML="'Kiev' Cake";
+						document.getElementById("bts2").src="https://dastarkhan24.kz/upload/iblock/7db/7db9be85f5476557d36dc5f2e23144e9.jpg";
+						document.querySelector("#para").innerHTML="Appetizing chocolate cake with delicate butter cream, decorated with airy cream, grated chocolate and juicy cherries. Will decorate any feast and give sweet pleasure!";
+						document.querySelector(".icon1").style.marginTop="-430px";
+						
+
+					})
+					$('#aya4').click(function(){
+						document.querySelector(".tat").style.display="flex";
+				        document.querySelector(".bts1").innerHTML='120$';
+				        document.querySelector(".bts").innerHTML="'Prague' Cake";
+						document.getElementById("bts2").src="https://dastarkhan24.kz/upload/iblock/c0f/c0f0e8cd9011be7445d92e36ba3ce0e1.jpg";
+						document.querySelector("#para").innerHTML="Delicious chocolate sponge cake, the most delicate layer of custard with boiled condensed milk and all this is decorated with chocolate cream - our Prague cake is so good that there is nothing to add. Well, maybe a cup of hot tea or coffee.";
+						document.querySelector(".icon1").style.marginTop="-480px";
+						
+					})
+					$('#aya5').click(function(){
+						document.querySelector(".tat").style.display="flex";
+				        document.querySelector(".bts1").innerHTML='100$';
+				        document.querySelector(".bts").innerHTML="'Anniversary' Cake";
+						document.getElementById("bts2").src="https://dastarkhan24.kz/upload/iblock/6d6/6d627d43626688eaa5a345f27a1485ed.jpg";
+						document.querySelector(".icon1").style.marginTop="-500px";
+						document.querySelector("#para").innerHTML="A cake made of fragrant honey cakes is soaked in delicate creamy curd cream and decorated with chocolate mastic, airy meringues and fresh berries. A bright addition to any holiday!";
+
+					})
+					$('#aya6').click(function(){
+						document.querySelector(".tat").style.display="flex";
+				        document.querySelector(".bts1").innerHTML='93$';
+				        document.querySelector(".bts").innerHTML="'Milky Girl' Cake";
+						document.getElementById("bts2").src="https://dastarkhan24.kz/upload/iblock/5a1/5a141bfba8e35361cc8e5c9b9804cdb3.jpg";
+						document.querySelector(".icon1").style.marginTop="-450px";
+						document.querySelector("#para").innerHTML="Delicate cake made of condensed milk based cakes, saturated with melting soft whipped cream filling and festively decorated by our pastry chef. A tasty addition to the festive table.";
+
+
+					})
+					$('#aya7').click(function(){
+						document.querySelector(".tat").style.display="flex";
+				        document.querySelector(".bts1").innerHTML='102$';
+				        document.querySelector(".bts").innerHTML="'Carrot' Cake";
+						document.getElementById("bts2").src="https://dastarkhan24.kz/upload/iblock/2f8/2f89093fb486d306ef1a7e572d4e95c2.jpg";
+						document.querySelector(".icon1").style.marginTop="-430px";
+						document.querySelector("#para").innerHTML="An unusual combination of products - carrots, raisins and walnuts with a delicious biscuit soaked in cheese cream in the 'Carrot' cake. Try a bite of this tasty treat.";
+
+
+					})
+					$('#aya8').click(function(){
+						document.querySelector(".tat").style.display="flex";
+				        document.querySelector(".bts1").innerHTML='91$';
+				        document.querySelector(".bts").innerHTML="'Eden' Cake";
+						document.getElementById("bts2").src="https://dastarkhan24.kz/upload/iblock/121/1211cc8630feb33cc71b20cd120ccf7e.jpg";
+						document.querySelector(".icon1").style.marginTop="-450px";
+						document.querySelector("#para").innerHTML="This appetizing biscuit cake is prepared by the pastry chef of Yubileiny from natural ingredients according to a home recipe. Contains crispy meringue pieces, infused with delicate butter cream.";
+
+					})
+					$('#aya9').click(function(){
+						document.querySelector(".tat").style.display="flex";
+				        document.querySelector(".bts1").innerHTML='120$';
+				        document.querySelector(".bts").innerHTML="'Yoghurt' Cake";
+						document.getElementById("bts2").src="https://dastarkhan24.kz/upload/iblock/3c5/3c5291e507b7651db45dba748f6548d6.jpg";
+						document.querySelector(".icon1").style.marginTop="-450px";
+						document.querySelector("#para").innerHTML="Delicate yoghurt cake, melting in your mouth, made on the basis of creamy curd mousse and soaked in syrup. Covered with soft glaze, garnished with whipped cream and aromatic berries.";
+
+					})
+					
+					$('#aya10').click(function(){
+						document.querySelector(".tat").style.display="flex";
+				        document.querySelector(".bts1").innerHTML='99$';
+				        document.querySelector(".bts").innerHTML="'Napoleon' Cake";
+						document.getElementById("bts2").src="https://dastarkhan24.kz/upload/iblock/3b6/3b63d6ca098231917bfb003d778b175e.jpg";
+						document.querySelector(".icon1").style.marginTop="-410px";
+						document.querySelector("#para").innerHTML="The famous Napoleon cake is made according to the classic recipe from the finest puff cakes soaked in delicate custard cream.";
+
+
+					})
+					$('#aya11').click(function(){
+						document.querySelector(".tat").style.display="flex";
+				        document.querySelector(".bts1").innerHTML='98$';
+				        document.querySelector(".bts").innerHTML="'Eva' Cake";
+						document.getElementById("bts2").src="https://dastarkhan24.kz/upload/iblock/ce4/ce4bd54b57fe0b136432a5576741c84a.jpg";
+						document.querySelector(".icon1").style.marginTop="-430px";
+						document.querySelector("#para").innerHTML="Delicate cake - ice cream is made of biscuit and crispy meringue with the addition of spicy prunes, walnuts and cream-brül. A worthy dessert for the fastidious sweet tooth!";
+
+
+					})
+					$('#aya12').click(function(){
+						document.querySelector(".tat").style.display="flex";
+				        document.querySelector(".bts1").innerHTML='123$';
+				        document.querySelector(".bts").innerHTML="'Berry' Cake";
+						document.getElementById("bts2").src="https://dastarkhan24.kz/upload/iblock/6ab/6ab1f6acf595a794ec956bd91fa86c0e.jpg";
+						document.querySelector(".icon1").style.marginTop="-450px";
+						document.querySelector("#para").innerHTML="Delicate cake made of airy sponge cake is complemented with poppy seeds, nuts, raisins and soaked in sour cream. A piece of this culinary masterpiece will cheer you up for the whole day";
+
+					})
+					$('#aya13').click(function(){
+						document.querySelector(".tat").style.display="flex";
+				        document.querySelector(".bts1").innerHTML='98$';
+				        document.querySelector(".bts").innerHTML="'Curd' Cake";
+						document.getElementById("bts2").src="https://dastarkhan24.kz/upload/iblock/01d/01d16ba95321f727ea204f73cdc30c06.jpg";
+						document.querySelector(".icon1").style.marginTop="-430px";
+						document.querySelector("#para").innerHTML="Delicate and light dessert cake made from cottage cheese and delicious berries will be an excellent addition to a cup of fragrant tea and will make your day sweet.";
+
+
+					})
+					$('#aya14').click(function(){
+						document.querySelector(".tat").style.display="flex";
+				        document.querySelector(".bts1").innerHTML='126$';
+				        document.querySelector(".bts").innerHTML="'Alen' Cake";
+						document.getElementById("bts2").src="https://dastarkhan24.kz/upload/iblock/be2/be23275baeed7087e03124597f7b4e73.jpg";
+						document.querySelector(".icon1").style.marginTop="-430px";
+						document.querySelector("#para").innerHTML="An appetizing cake made from natural selected ingredients, has a creamy taste with vanilla notes, is saturated with delicate cream and covered with chocolate.";
+
+
+
+					})
+					$('#aya15').click(function(){
+						document.querySelector(".tat").style.display="flex";
+				        document.querySelector(".bts1").innerHTML='121$';
+				        document.querySelector(".bts").innerHTML="'Torte' Cake";
+						document.getElementById("bts2").src="https://dastarkhan24.kz/upload/iblock/5d4/5d44e990040494338fe9918669cfd4de.jpg";
+						document.querySelector(".icon1").style.marginTop="-450px";
+						document.querySelector("#para").innerHTML="Our pastry chefs have baked a large assortment of sweet masterpieces for every taste especially for the holiday. Arrange yourself an unforgettably romantic and incredibly delicious holiday.";
+
+
+					})
+					$('#aya16').click(function(){
+						document.querySelector(".tat").style.display="flex";
+				        document.querySelector(".bts1").innerHTML='125$';
+				        document.querySelector(".bts").innerHTML="'Sweet' Cake";
+						document.getElementById("bts2").src="https://dastarkhan24.kz/upload/iblock/da3/da3cbc3fef1cfa2b5853ab820c8ebb3c.jpg";
+						document.querySelector(".icon1").style.marginTop="-430px";
+						document.querySelector("#para").innerHTML="A yoghurt cake that melts gently in your mouth, soaked in syrup and covered with soft icing. The sweet treat is adorned with whipped cream and aromatic berries.";
+
+
+					})
+					$('#aya17').click(function(){
+						document.querySelector(".tat").style.display="flex";
+				        document.querySelector(".bts1").innerHTML='123$';
+				        document.querySelector(".bts").innerHTML="'Ideal' Cake";
+						document.getElementById("bts2").src="https://dastarkhan24.kz/upload/iblock/d2b/d2b19da3afa0099d977424e1345d994b.jpg";
+						document.querySelector(".icon1").style.marginTop="-450px";
+						document.querySelector("#para").innerHTML="The famous Napoleon cake will delight aesthetes. Puff cakes soaked in delicate cream and decorated with appetizing caramel filling. A harmonious combination of taste and elegant design!";
+
+
+					})
+					$('#aya18').click(function(){
+						document.querySelector(".tat").style.display="flex";
+				        document.querySelector(".bts1").innerHTML='123$';
+				        document.querySelector(".bts").innerHTML="'Emerald' Cake";
+						document.getElementById("bts2").src="https://dastarkhan24.kz/upload/iblock/198/19813eead3bf08d10e3a9fd5e09cb950.jpg";
+						document.querySelector(".icon1").style.marginTop="-450px";
+						document.querySelector("#para").innerHTML="Everyone's favorite cake 'Red Velvet' is now in a new role. A tender green biscuit cake soaked in creamy cream based on aromatic Mascarpone cheese will impress even the most sophisticated sweets lover.";
+
+
+
+					})
+					$('#aya19').click(function(){
+						document.querySelector(".tat").style.display="flex";
+				        document.querySelector(".bts1").innerHTML='126$';
+				        document.querySelector(".bts").innerHTML="'Fate' Cake";
+						document.getElementById("bts2").src="https://dastarkhan24.kz/upload/iblock/915/9159d6fec97451a702eceb9fa96842be.jpg";
+						document.querySelector(".icon1").style.marginTop="-450px";
+						document.querySelector("#para").innerHTML="An amazing tandem of juicy raspberries, delicate curd cream and a crumbly sand basket will tastefully complement a cup of tea. The cake is made in two sizes: standard and mini.";
+					})
+				})
+
+
+			});
+		});
+
+
+			
+		$(document).ready(function(){
+			$('#aya').mouseover(function(){
+				document.querySelector("#a").style.display="flex";
+			    document.querySelector("#b").style.display="none";
+			})
+			$('#aya').mouseout(function(){
+				document.querySelector("#a").style.display="none";
+			    document.querySelector("#b").style.display="block";
+			})	
+
+		})
+		$(document).ready(function(){
+			$('#aya1').mouseover(function(){
+				document.querySelector("#a1").style.display="flex";
+			    document.querySelector("#b1").style.display="none";
+			})
+			$('#aya1').mouseout(function(){
+				document.querySelector("#a1").style.display="none";
+			    document.querySelector("#b1").style.display="block";
+			})	
+
+		})
+		$(document).ready(function(){
+			$('#aya2').mouseover(function(){
+				document.querySelector("#a2").style.display="flex";
+			    document.querySelector("#b2").style.display="none";
+			})
+			$('#aya2').mouseout(function(){
+				document.querySelector("#a2").style.display="none";
+			    document.querySelector("#b2").style.display="block";
+			})	
+
+		})
+		$(document).ready(function(){
+			$('#aya3').mouseover(function(){
+				document.querySelector("#a3").style.display="flex";
+			    document.querySelector("#b3").style.display="none";
+			})
+			$('#aya3').mouseout(function(){
+				document.querySelector("#a3").style.display="none";
+			    document.querySelector("#b3").style.display="block";
+			})	
+
+		})
+		$(document).ready(function(){
+			$('#aya4').mouseover(function(){
+				document.querySelector("#a4").style.display="flex";
+			    document.querySelector("#b4").style.display="none";
+			})
+			$('#aya4').mouseout(function(){
+				document.querySelector("#a4").style.display="none";
+			    document.querySelector("#b4").style.display="block";
+			})	
+
+		})
+		$(document).ready(function(){
+			$('#aya5').mouseover(function(){
+				document.querySelector("#a5").style.display="flex";
+			    document.querySelector("#b5").style.display="none";
+			})
+			$('#aya5').mouseout(function(){
+				document.querySelector("#a5").style.display="none";
+			    document.querySelector("#b5").style.display="block";
+			})	
+
+		})
+		$(document).ready(function(){
+			$('#aya6').mouseover(function(){
+				document.querySelector("#a6").style.display="flex";
+			    document.querySelector("#b6").style.display="none";
+			})
+			$('#aya6').mouseout(function(){
+				document.querySelector("#a6").style.display="none";
+			    document.querySelector("#b6").style.display="block";
+			})	
+
+		})
+		$(document).ready(function(){
+			$('#aya7').mouseover(function(){
+				document.querySelector("#a7").style.display="flex";
+			    document.querySelector("#b7").style.display="none";
+			})
+			$('#aya7').mouseout(function(){
+				document.querySelector("#a7").style.display="none";
+			    document.querySelector("#b7").style.display="block";
+			})	
+
+		})
+		$(document).ready(function(){
+			$('#aya8').mouseover(function(){
+				document.querySelector("#a8").style.display="flex";
+			    document.querySelector("#b8").style.display="none";
+			})
+			$('#aya8').mouseout(function(){
+				document.querySelector("#a8").style.display="none";
+			    document.querySelector("#b8").style.display="block";
+			})	
+
+		})
+
+			$(document).ready(function(){
+			$('#aya9').mouseover(function(){
+				document.querySelector("#a9").style.display="flex";
+			    document.querySelector("#b9").style.display="none";
+			})
+			$('#aya9').mouseout(function(){
+				document.querySelector("#a9").style.display="none";
+			    document.querySelector("#b9").style.display="block";
+			})	
+
+		})
+			$(document).ready(function(){
+			$('#aya10').mouseover(function(){
+				document.querySelector("#a10").style.display="flex";
+			    document.querySelector("#b10").style.display="none";
+			})
+			$('#aya10').mouseout(function(){
+				document.querySelector("#a10").style.display="none";
+			    document.querySelector("#b10").style.display="block";
+			})	
+
+		})
+			$(document).ready(function(){
+			$('#aya11').mouseover(function(){
+				document.querySelector("#a11").style.display="flex";
+			    document.querySelector("#b11").style.display="none";
+			})
+			$('#aya11').mouseout(function(){
+				document.querySelector("#a11").style.display="none";
+			    document.querySelector("#b11").style.display="block";
+			})	
+
+		})
+			$(document).ready(function(){
+			$('#aya12').mouseover(function(){
+				document.querySelector("#a12").style.display="flex";
+			    document.querySelector("#b12").style.display="none";
+			})
+			$('#aya12').mouseout(function(){
+				document.querySelector("#a12").style.display="none";
+			    document.querySelector("#b12").style.display="block";
+			})	
+
+		})
+			$(document).ready(function(){
+			$('#aya13').mouseover(function(){
+				document.querySelector("#a13").style.display="flex";
+			    document.querySelector("#b13").style.display="none";
+			})
+			$('#aya13').mouseout(function(){
+				document.querySelector("#a13").style.display="none";
+			    document.querySelector("#b13").style.display="block";
+			})	
+
+		})
+			$(document).ready(function(){
+			$('#aya14').mouseover(function(){
+				document.querySelector("#a14").style.display="flex";
+			    document.querySelector("#b14").style.display="none";
+			})
+			$('#aya14').mouseout(function(){
+				document.querySelector("#a14").style.display="none";
+			    document.querySelector("#b14").style.display="block";
+			})	
+
+		})
+			$(document).ready(function(){
+			$('#aya15').mouseover(function(){
+				document.querySelector("#a15").style.display="flex";
+			    document.querySelector("#b15").style.display="none";
+			})
+			$('#aya15').mouseout(function(){
+				document.querySelector("#a15").style.display="none";
+			    document.querySelector("#b15").style.display="block";
+			})	
+
+		})
+			$(document).ready(function(){
+			$('#aya16').mouseover(function(){
+				document.querySelector("#a16").style.display="flex";
+			    document.querySelector("#b16").style.display="none";
+			})
+			$('#aya16').mouseout(function(){
+				document.querySelector("#a16").style.display="none";
+			    document.querySelector("#b16").style.display="block";
+			})	
+
+		})
+			$(document).ready(function(){
+			$('#aya17').mouseover(function(){
+				document.querySelector("#a17").style.display="flex";
+			    document.querySelector("#b17").style.display="none";
+			})
+			$('#aya17').mouseout(function(){
+				document.querySelector("#a17").style.display="none";
+			    document.querySelector("#b17").style.display="block";
+			})	
+
+		})
+			$(document).ready(function(){
+			$('#aya18').mouseover(function(){
+				document.querySelector("#a18").style.display="flex";
+			    document.querySelector("#b18").style.display="none";
+			})
+			$('#aya18').mouseout(function(){
+				document.querySelector("#a18").style.display="none";
+			    document.querySelector("#b18").style.display="block";
+			})	
+
+		})
+			$(document).ready(function(){
+			$('#aya19').mouseover(function(){
+				document.querySelector("#a19").style.display="flex";
+			    document.querySelector("#b19").style.display="none";
+			})
+			$('#aya19').mouseout(function(){
+				document.querySelector("#a19").style.display="none";
+			    document.querySelector("#b19").style.display="block";
+			})	
+
+		})
+
+
+		
+		ymaps.ready(init);
+
+function init() {
+    // Creating the map.
+    var myMap = new ymaps.Map("map", {
+            center: [49.7856667648698,73.10822599999995],
+            zoom: 13
+        }, {
+            searchControlProvider: 'yandex#search'
+        });
+
+    // Creating a circle.
+    var myCircle = new ymaps.Circle([
+        // The coordinates of the center of the circle.
+        [49.7856667648698,73.10822599999995],
+        // The radius of the circle in meters.
+        700
+    ], {
+        /**
+         * Describing the properties of the circle.
+         * The contents of the balloon.
+         */
+        balloonContent: "frequent visit",
+        // The contents of the hint.
+        
+    }, {
+        /**
+         * Setting the circle options.
+         * Enabling drag-n-drop for the circle.
+         */
+        draggable: true,
+        /**
+         * Fill color.
+         * The last byte (77) defines transparency.
+         * The transparency of the fill can also be set using the option "fillOpacity".
+         */
+        fillColor: "#DB000377",
+        // Stroke color.
+        strokeColor: "#808080",
+        // Stroke transparency.
+        strokeOpacity: 0.8,
+        // The width of the stroke in pixels.
+        strokeWidth: 3
+    });
+
+  
+
+    MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+            '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
+        ),
+
+        myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+            hintContent: 'Nura',
+            balloonContent: 'Это красивая метка'
+        }, {
+            // Опции.
+            // Необходимо указать данный тип макета.
+            iconLayout: 'default#image',
+            // Своё изображение иконки метки.
+            iconImageHref: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Google_Maps_icon_%282020%29.svg/1200px-Google_Maps_icon_%282020%29.svg.png',
+            // Размеры метки.
+            iconImageSize: [30, 42],
+            // Смещение левого верхнего угла иконки относительно
+            // её "ножки" (точки привязки).
+            iconImageOffset: [-105, -158]
+        }),
+
+        myPlacemarkCont = new ymaps.Placemark(myMap.getCenter(), {
+            hintContent: 'Avenue',
+            balloonContent: 'The '
+        }, {
+            // Опции.
+            // Необходимо указать данный тип макета.
+            iconLayout: 'default#image',
+            // Своё изображение иконки метки.
+            iconImageHref: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Google_Maps_icon_%282020%29.svg/1200px-Google_Maps_icon_%282020%29.svg.png',
+            // Размеры метки.
+            iconImageSize: [30, 42],
+            // Смещение левого верхнего угла иконки относительно
+            // её "ножки" (точки привязки).
+            iconImageOffset: [105, 58],
+
+        }),
+  
+  		 myPlacemarkWithCont = new ymaps.Placemark(myMap.getCenter(), {
+            hintContent: 'Sweetest',
+            balloonContent: 'The best pastry shop in this city'
+        }, {
+            // Опции.
+            // Необходимо указать данный тип макета.
+            iconLayout: 'default#image',
+            // Своё изображение иконки метки.
+            iconImageHref: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Google_Maps_icon_%282020%29.svg/1200px-Google_Maps_icon_%282020%29.svg.png',
+            // Размеры метки.
+            iconImageSize: [30, 42],
+            // Смещение левого верхнего угла иконки относительно
+            // её "ножки" (точки привязки).
+            iconImageOffset: [-55, -48],
+            
+        }),
+          myMap.geoObjects
+        .add(myPlacemark)
+        .add(myCircle)
+        .add(myPlacemarkCont)
+        .add(myPlacemarkWithCont);
+    }
+		</script>
+	   </body>
+</html>
